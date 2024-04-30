@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color:white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.2);
+            width: 500px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color:green;
+            color: whitesmoke;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        .cancelbtn {
+            background-color:orange;
+        }
+
+        .cancelbtn, .loginbtn {
+            float: left;
+            width: 50%;
+        }
+
+        .loginbtn {
+            background-color:orange;
+        }
+
+        .container {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="loginModal">
+    <form id="loginForm" class="modal-content">
+        <div class="container">
+            <h2>Login</h2>
+            <label for="username"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="username" required>
+
+            <label for="password"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password" required>
+
+            <button type="submit" class="loginbtn">Login</button>
+            <button type="button" onclick="document.getElementById('loginModal').style.display='none'" class="cancelbtn">Cancel</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        var username = this.elements['username'].value;
+        var password = this.elements['password'].value;
+
+        if (username === 'erwin' && password === 'ayay') {
+            window.location.href = 'index.html';
+            alert('Login successful!');
+            document.getElementById('loginModal').style.display = 'none';
+            document.getElementById('homeAddress').style.display = 'block';
+        } else {
+            alert('Invalid username or password. Please try again.');
+        }
+    });
+</script>
+
+</body>
+</html>
